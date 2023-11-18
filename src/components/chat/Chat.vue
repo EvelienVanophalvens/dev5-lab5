@@ -19,8 +19,24 @@
 
 
     function sendMessage() {
-        allMessages.data.push(message.value);
-        message.value = "";
+        //post message to api
+        fetch("https://lab4-716k.onrender.com/api/v1/messages", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                message:{
+                user: "test",
+                text: message.value,
+                },
+            }),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data);
+                allMessages.data.push(data["data"][0]);
+            });
     }
 
 </script>
