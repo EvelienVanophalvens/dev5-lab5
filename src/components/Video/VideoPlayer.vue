@@ -16,6 +16,7 @@ onMounted(() => {
         videos.data = data.record.videos;
         videoUrl.value = videos.data[0].video;
 
+
         //emit event
         emit('update:videoDescription', videos.data[0].description);
     });
