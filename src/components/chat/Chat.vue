@@ -35,7 +35,7 @@
             .then((response) => response.json())
             .then((data) => {
                 console.log(data);
-                allMessages.data.push(data["data"][0]);
+                allMessages.data.push(data["data"]["message"]);
             });
     }
 
